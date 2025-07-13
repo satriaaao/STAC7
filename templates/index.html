@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cek NIK/KTP</title>
+</head>
+<body>
+    <h1>Cek NIK/KTP</h1>
+    <form method="POST">
+        <input type="text" name="nik" placeholder="Masukkan NIK" required>
+        <button type="submit">Cek</button>
+    </form>
+
+    {% if nik %}
+        <h3>Hasil untuk NIK: {{ nik }}</h3>
+        {% if data %}
+            <pre>{{ data | tojson(indent=2) }}</pre>
+        {% elif error %}
+            <p style="color:red;">{{ error }}</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
